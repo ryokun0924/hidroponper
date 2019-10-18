@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{66990F30-DE9C-A1EE-21FE-83904772AEEB}</ProjectGuid>
+    <ProjectGuid>{77A65631-F997-8C67-BDB3-DFE0E789EC00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UniRx.Examples</AssemblyName>
@@ -59,16 +59,16 @@
      <Compile Include="Assets\Plugins\UniRx\Examples\Sample13_ToDoApp.cs" />
      <None Include="Assets\Plugins\UniRx\Examples\UniRx.Examples.asmdef" />
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -248,7 +248,7 @@
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -604,7 +604,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UniRx.csproj">
-      <Project>{D624930E-EE73-E122-BA64-C7557DD36CB6}</Project>
+      <Project>{2F0B9F56-404A-D3C4-C9D5-EC0C248984C3}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>

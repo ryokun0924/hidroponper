@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{33C7C9B1-4822-02A6-AACE-8FD9AA6DE3D4}</ProjectGuid>
+    <ProjectGuid>{27613918-6EE5-1F90-093C-3DBDB0483D04}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -46,37 +46,37 @@
   </PropertyGroup>
   <ItemGroup>     <Compile Include="Assets\UnityOSC\Editor\OSCHelper.cs" />
  <Reference Include="UnityEditor.TestRunner">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -274,7 +274,7 @@
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -639,11 +639,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{3CC55B1A-844B-3EF7-9F74-994FA372B609}</Project>
+      <Project>{D3A807EF-C597-9C6F-C859-3428E5AD9F80}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="UniRx.csproj">
-      <Project>{D624930E-EE73-E122-BA64-C7557DD36CB6}</Project>
+      <Project>{2F0B9F56-404A-D3C4-C9D5-EC0C248984C3}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>

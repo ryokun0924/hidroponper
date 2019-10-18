@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3CC55B1A-844B-3EF7-9F74-994FA372B609}</ProjectGuid>
+    <ProjectGuid>{D3A807EF-C597-9C6F-C859-3428E5AD9F80}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -48,6 +48,7 @@
      <Compile Include="Assets\GodTouch\Demo\Scripts\ClickLongPressDrag.cs" />
      <Compile Include="Assets\GodTouch\Demo\Scripts\Demo.cs" />
      <Compile Include="Assets\GodTouch\Scripts\GodTouch.cs" />
+     <Compile Include="Assets\Scripts\OSCReceiver.cs" />
      <Compile Include="Assets\Scripts\Target.cs" />
      <Compile Include="Assets\UnityOSC\Examples\SimpleReceiver\SimpleReceiverExample.cs" />
      <Compile Include="Assets\UnityOSC\OSC\OSCBundle.cs" />
@@ -59,31 +60,31 @@
      <Compile Include="Assets\UnityOSC\OSCHandler.cs" />
      <None Include="Assets\main.shader" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -625,7 +626,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="UniRx.csproj">
-      <Project>{D624930E-EE73-E122-BA64-C7557DD36CB6}</Project>
+      <Project>{2F0B9F56-404A-D3C4-C9D5-EC0C248984C3}</Project>
       <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>

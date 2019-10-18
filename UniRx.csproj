@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D624930E-EE73-E122-BA64-C7557DD36CB6}</ProjectGuid>
+    <ProjectGuid>{2F0B9F56-404A-D3C4-C9D5-EC0C248984C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UniRx</AssemblyName>
@@ -273,10 +273,10 @@
      <Compile Include="Assets\Plugins\UniRx\Scripts\UnityWinRTBridge\ThreadPoolScheduler_UnityWinRT.cs" />
      <None Include="Assets\Plugins\UniRx\Scripts\UniRx.asmdef" />
  <Reference Include="UnityEditor.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Users/ryo/Documents/workplace/unity/shader/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.9f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>

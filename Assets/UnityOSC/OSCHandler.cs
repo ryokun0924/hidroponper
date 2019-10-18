@@ -96,13 +96,13 @@ public class OSCHandler : MonoBehaviour
 	{
         //Initialize OSC clients (transmitters)
         //Example:		
-        CreateClient("DummySender", IPAddress.Parse("127.0.0.1"), 5555);
+        // CreateClient("DummySender", IPAddress.Parse("127.0.0.1"), 5555);
 
 
         //Initialize OSC servers (listeners)
         //Example:
 
-        CreateServer("AndroidPhone", 5555);
+        // CreateServer("AndroidPhone", 5555);
     }
 
     #region Properties
