@@ -13,6 +13,7 @@ namespace GodTouches
             bool isActive;
             bool isHit;
             public float showDuration = 0.3f;
+            public float hitAnimationDuration = 0.3f;
 
             private Quaternion beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
             private Quaternion activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -36,9 +37,10 @@ namespace GodTouches
             void Update()
             {
                 var phase = GodTouch.GetPhase();
-                if (phase == GodPhase.Began)
+                if (phase == GodPhase.Began && isActive)
                 {
-                    print("touch start");
+                    isHit = true;
+                    StartCoroutine(hitAnimation());
                 }
 
             }
@@ -91,6 +93,18 @@ namespace GodTouches
             {
                 yield return new WaitForSeconds(waitTime);
                 StartCoroutine(Hide(showDuration));
+            }
+
+            private IEnumerator hitAnimation()
+            {
+                Quaternion startRotation = transform.rotation;
+                Quaternion endRotation = startRotation * Quaternion.Euler(100,0,0);
+                for (float t = 0; t < hitAnimationDuration; t += Time.deltaTime)
+                {
+                    transform.rotation = Quaternion.Lerp(startRotation, endRotation, t / hitAnimationDuration);
+                    yield return null;
+                }
+                transform.rotation = endRotation;
             }
 
 

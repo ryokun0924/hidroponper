@@ -37,6 +37,11 @@ using System;
                 OSCHandler.Instance.packets.Remove(OSCHandler.Instance.packets[i]);
                 i--;
             }
+
+            if( Input.GetKeyDown("space")){
+
+                 showSubject.OnNext(3.0f);
+            }
         }
 
         private void receivedOSC(OSCPacket packet)

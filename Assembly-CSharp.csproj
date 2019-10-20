@@ -49,6 +49,7 @@
      <Compile Include="Assets\GodTouch\Demo\Scripts\Demo.cs" />
      <Compile Include="Assets\GodTouch\Scripts\GodTouch.cs" />
      <Compile Include="Assets\Scripts\OSCReceiver.cs" />
+     <Compile Include="Assets\Scripts\PostProcessing.cs" />
      <Compile Include="Assets\Scripts\Target.cs" />
      <Compile Include="Assets\UnityOSC\Examples\SimpleReceiver\SimpleReceiverExample.cs" />
      <Compile Include="Assets\UnityOSC\OSC\OSCBundle.cs" />
@@ -58,7 +59,10 @@
      <Compile Include="Assets\UnityOSC\OSC\OSCReciever.cs" />
      <Compile Include="Assets\UnityOSC\OSC\OSCServer.cs" />
      <Compile Include="Assets\UnityOSC\OSCHandler.cs" />
-     <None Include="Assets\main.shader" />
+     <None Include="Assets\Materials\toon.shader" />
+     <None Include="Assets\Materials\postProcessing.shader" />
+     <None Include="Assets\TSF\Shaders\TSFOutline.shader" />
+     <None Include="Assets\TSF\Shaders\TSF.shader" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -77,8 +81,14 @@
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Rider.Editor">
  <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
  <HintPath>/Users/ryo/Documents/workplace/unity/hidroponper/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
