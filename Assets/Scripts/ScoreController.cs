@@ -17,7 +17,7 @@ public class ScoreController : MonoBehaviour
 
      private OSCReceiver receiver = OSCReceiver.Instance;
     int dispScore;
-    int dummyResult = 86;
+    
 
     float pastTime;
     void Start()
@@ -46,14 +46,14 @@ public class ScoreController : MonoBehaviour
     void showScore(int _score)
     {   
         scoreText.text = "000";
-        StartCoroutine(scoreFade());
+        StartCoroutine(scoreFade(_score));
 
     }
-    IEnumerator scoreFade()
+    IEnumerator scoreFade(int _score)
     {
 
         for(float t = 0; t <= (float)resultShowDurationMilliSeconds / 1000.0f; t += Time.deltaTime){
-            dispScore = (int)Mathf.Lerp(0.0f, dummyResult, t * 1000f / resultShowDurationMilliSeconds);
+            dispScore = (int)Mathf.Lerp(0.0f, _score+1, t * 1000f / resultShowDurationMilliSeconds);
             if (dispScore < 10)
             {
                 scoreText.text = "00" + dispScore.ToString();

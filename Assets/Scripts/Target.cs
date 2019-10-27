@@ -27,6 +27,7 @@ namespace GodTouches
                 receiver.OnShowSignal.Subscribe(duration =>
                 {
                     // print("show start. duration=" + duration);
+                    StopCoroutine("hitAnimation");
                     activate(duration);
                 });
 
@@ -41,6 +42,8 @@ namespace GodTouches
                 {
                     isHit = true;
                     StartCoroutine(hitAnimation());
+                    StopCoroutine("deactivate");
+                    StopCoroutine("Show");
                 }
 
             }
