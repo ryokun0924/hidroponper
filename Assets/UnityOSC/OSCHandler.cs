@@ -20,6 +20,7 @@
 //
 //	  Inspired by http://www.unifycommunity.com/wiki/index.php?title=AManagerClass
 
+
 using System;
 using System.Net;
 using System.Collections.Generic;
@@ -31,6 +32,8 @@ using UnityOSC;
 /// Models a log of a server composed by an OSCServer, a List of OSCPacket and a List of
 /// strings that represent the current messages in the log.
 /// </summary>
+
+
 public struct ServerLog
 {
 	public OSCServer server;
@@ -55,6 +58,10 @@ public struct ClientLog
 /// </summary>
 public class OSCHandler : MonoBehaviour
 {
+
+	public int receive_port = 12345;
+	public event PacketReceivedEventHandler PacketReceiveEvent;
+
 	#region Singleton Constructors
 	static OSCHandler()
 	{
@@ -102,7 +109,7 @@ public class OSCHandler : MonoBehaviour
         //Initialize OSC servers (listeners)
         //Example:
 
-        // CreateServer("AndroidPhone", 5555);
+        CreateServer("target", receive_port);
     }
 
     #region Properties
@@ -209,6 +216,7 @@ public class OSCHandler : MonoBehaviour
     /// Callback when a message is received. It stores the messages in a list of the oscControl
     void OnPacketReceived(OSCServer server, OSCPacket packet)
     {
+		PacketReceiveEvent(server, packet);
         // Remember origin
         packet.server = server;
 

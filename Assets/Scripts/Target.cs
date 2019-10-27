@@ -12,14 +12,14 @@ namespace GodTouches
         {
             bool isActive;
             bool isHit;
-            public float showDuration = 0.3f;
-            public float hitAnimationDuration = 0.3f;
+            public float showDuration = 300;
+            public float hitAnimationDuration = 300;
 
             private Quaternion beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
             private Quaternion activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
             private Quaternion afterRotation = Quaternion.Euler(new Vector3(0, 0, -110));
 
-            [SerializeField] private OSCReceiver receiver;
+            private OSCReceiver receiver = OSCReceiver.Instance;
             // Start is called before the first frame update
             void Start()
             {
@@ -44,7 +44,12 @@ namespace GodTouches
                 }
 
             }
-
+            void activate(float _duration)
+            {
+                transform.rotation = beforeRotation;
+                StartCoroutine(Show(showDuration));
+                StartCoroutine(deactivate(_duration));
+            }
 
             private IEnumerator Show(float _showDuration)
             {
@@ -54,7 +59,7 @@ namespace GodTouches
                 {
                     Quaternion startRotation = transform.rotation;
                     Quaternion endRotation = activeRotation;
-                    for (float t = 0; t < _showDuration; t += Time.deltaTime)
+                    for (float t = 0; t < _showDuration; t += Time.deltaTime * 1000.0f)
                     {
                         transform.rotation = Quaternion.Lerp(startRotation, endRotation, t / _showDuration);
                         yield return null;
@@ -71,7 +76,7 @@ namespace GodTouches
                 {
                     Quaternion startRotation = transform.rotation;
                     Quaternion endRotation = afterRotation;
-                    for (float t = 0; t < _showDuration; t += Time.deltaTime)
+                    for (float t = 0; t < _showDuration; t += Time.deltaTime * 1000.0f)
                     {
                         transform.rotation = Quaternion.Lerp(startRotation, endRotation, t / _showDuration);
                         yield return null;
@@ -82,24 +87,19 @@ namespace GodTouches
                 isHit = false;
             }
 
-            void activate(float _duration)
-            {
-                transform.rotation = beforeRotation;
-                StartCoroutine(Show(showDuration));
-                StartCoroutine(deactivate(_duration));
-            }
+
 
             private IEnumerator deactivate(float waitTime)
             {
-                yield return new WaitForSeconds(waitTime);
+                yield return new WaitForSeconds((float)waitTime/1000.0f);
                 StartCoroutine(Hide(showDuration));
             }
 
             private IEnumerator hitAnimation()
             {
                 Quaternion startRotation = transform.rotation;
-                Quaternion endRotation = startRotation * Quaternion.Euler(100,0,0);
-                for (float t = 0; t < hitAnimationDuration; t += Time.deltaTime)
+                Quaternion endRotation = startRotation * Quaternion.Euler(100, 0, 0);
+                for (float t = 0; t < hitAnimationDuration; t += Time.deltaTime * 1000.0f)
                 {
                     transform.rotation = Quaternion.Lerp(startRotation, endRotation, t / hitAnimationDuration);
                     yield return null;
