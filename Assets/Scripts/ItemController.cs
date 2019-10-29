@@ -9,7 +9,7 @@ using TMPro;
 
 public class ItemController : MonoBehaviour
 {
-    private OSCReceiver receiver; 
+    private OSCReceiver receiver;
 
     [SerializeField] private GameObject item1;
     [SerializeField] private GameObject item2;
@@ -26,15 +26,19 @@ public class ItemController : MonoBehaviour
     void Start()
     {
         isActive = false;
-        receiver  = OSCReceiver.Instance;
+        receiver = OSCReceiver.Instance;
         item1.SetActive(false);
         item2.SetActive(false);
-         getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
+        getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
         receiver.OnItemShowSignal.Subscribe(signals =>
         {
+            item1.SetActive(false);
+            item2.SetActive(false);
+            getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
+            resetCoroutine();
             activate(signals);
         });
-        
+
     }
 
     // Update is called once per frame
@@ -69,9 +73,7 @@ public class ItemController : MonoBehaviour
 
     void startShow(GameObject target, float _duration)
     {
-        
 
-        
         isActive = true;
         target.SetActive(true);
         Image itemImage = target.GetComponent<Image>();
@@ -109,7 +111,7 @@ public class ItemController : MonoBehaviour
 
     private void hitAnimation()
     {
-       
+
 
         Image itemImage = item1.GetComponent<Image>();
         if (activeKind == 1)
@@ -127,19 +129,28 @@ public class ItemController : MonoBehaviour
       0f,
       (float)fadeTime / 1000f);
 
-        itemImage.transform.DOScale(new Vector3(3, 3, 3), (float)fadeTime/1000f);
+        itemImage.transform.DOScale(new Vector3(3, 3, 3), (float)fadeTime / 1000f);
 
     }
-    IEnumerator showGetText(){
+    IEnumerator showGetText()
+    {
         yield return new WaitForSeconds(0.3f);
 
-        getText.transform.localScale = new Vector3(0.0f,1.0f,1.0f);
+        getText.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
         getText.transform.DOScale(new Vector3(1, 1, 1), 0.8f);
-        
-        
+
+
         yield return new WaitForSeconds(getTextShowSeconds);
         getText.transform.DOScale(new Vector3(0, 1, 1), 0.2f);
-        
+
+    }
+
+    void resetCoroutine()
+    {
+        StopCoroutine("showGetText");
+        StopCoroutine("hitAnimation");
+        StopCoroutine("deactivate");
+        StopCoroutine("hide");
     }
 
 }

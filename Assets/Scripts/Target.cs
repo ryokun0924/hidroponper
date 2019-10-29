@@ -26,14 +26,15 @@ namespace GodTouches
                 receiver = OSCReceiver.Instance;
                 beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
                 activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-                Quaternion.Euler(new Vector3(0, 0, -110));
-                 showDuration = 300;
+                afterRotation = Quaternion.Euler(new Vector3(0, 0, -110));
+                showDuration = 300;
                 hitAnimationDuration = 300;
                 transform.rotation = beforeRotation;
                 receiver.OnShowSignal.Subscribe(duration =>
                 {
                     // print("show start. duration=" + duration);
-                    StopCoroutine("hitAnimation");
+
+                    resetCoroutine();
                     activate(duration);
                 });
 
@@ -43,7 +44,7 @@ namespace GodTouches
             // Update is called once per frame
             void Update()
             {
-      
+
                 var phase = GodTouch.GetPhase();
                 if (phase == GodPhase.Began && isActive)
                 {
@@ -101,7 +102,7 @@ namespace GodTouches
 
             private IEnumerator deactivate(float waitTime)
             {
-                yield return new WaitForSeconds((float)waitTime/1000.0f);
+                yield return new WaitForSeconds((float)waitTime / 1000.0f);
                 StartCoroutine(Hide(showDuration));
             }
 
@@ -116,10 +117,18 @@ namespace GodTouches
                 }
                 transform.rotation = endRotation;
             }
-
+            void resetCoroutine()
+            {
+                StopCoroutine("hitAnimation");
+                StopCoroutine("deactivate");
+                StopCoroutine("Hide");
+                StopCoroutine("Show");
+                
+            }
 
 
         }
     }
+
 
 }

@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Oct 29 23:07:29 JST 2019
+#Tue Oct 29 23:17:14 JST 2019
 2.path=bin/Data/sharedassets2.assets.split6
 14.set=ASSET
 107.baseType=DIRECTORY
