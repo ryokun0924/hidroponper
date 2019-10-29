@@ -9,7 +9,7 @@ using TMPro;
 
 public class ItemController : MonoBehaviour
 {
-    private OSCReceiver receiver = OSCReceiver.Instance;
+    private OSCReceiver receiver; 
 
     [SerializeField] private GameObject item1;
     [SerializeField] private GameObject item2;
@@ -21,11 +21,12 @@ public class ItemController : MonoBehaviour
     [SerializeField] private float getTextShowSeconds;
     // Start is called before the first frame update
 
-    private bool isActive = false;
+    private bool isActive;
     private int activeKind;
     void Start()
     {
-
+        isActive = false;
+        receiver  = OSCReceiver.Instance;
         item1.SetActive(false);
         item2.SetActive(false);
          getText.transform.DOScale(new Vector3(0, 1, 1), 0f);

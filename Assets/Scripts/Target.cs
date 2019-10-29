@@ -12,17 +12,23 @@ namespace GodTouches
         {
             bool isActive;
             bool isHit;
-            public float showDuration = 300;
-            public float hitAnimationDuration = 300;
+            public float showDuration;
+            public float hitAnimationDuration;
 
-            private Quaternion beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
-            private Quaternion activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
-            private Quaternion afterRotation = Quaternion.Euler(new Vector3(0, 0, -110));
+            private Quaternion beforeRotation;
+            private Quaternion activeRotation;
+            private Quaternion afterRotation;
 
-            private OSCReceiver receiver = OSCReceiver.Instance;
+            private OSCReceiver receiver;
             // Start is called before the first frame update
             void Start()
             {
+                receiver = OSCReceiver.Instance;
+                beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
+                activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                Quaternion.Euler(new Vector3(0, 0, -110));
+                 showDuration = 300;
+                hitAnimationDuration = 300;
                 transform.rotation = beforeRotation;
                 receiver.OnShowSignal.Subscribe(duration =>
                 {
@@ -37,6 +43,7 @@ namespace GodTouches
             // Update is called once per frame
             void Update()
             {
+      
                 var phase = GodTouch.GetPhase();
                 if (phase == GodPhase.Began && isActive)
                 {

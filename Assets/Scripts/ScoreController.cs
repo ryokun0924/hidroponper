@@ -13,15 +13,17 @@ public class ScoreController : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI rankText;
 
-    [SerializeField] float resultShowDurationMilliSeconds = 4000;
+    [SerializeField] float resultShowDurationMilliSeconds;
 
-     private OSCReceiver receiver = OSCReceiver.Instance;
+     private OSCReceiver receiver;
     int dispScore;
     
 
     float pastTime;
     void Start()
     {
+        receiver = OSCReceiver.Instance;
+
         scoreText.alpha = 0.0f;
         scoreText.DOFade(1.0f, 5.0f);
 
