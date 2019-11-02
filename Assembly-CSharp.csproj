@@ -68,7 +68,7 @@
      <Compile Include="Assets\Scripts\CountDownController.cs" />
      <Compile Include="Assets\Scripts\DummyOSCSender.cs" />
      <Compile Include="Assets\Scripts\ItemController.cs" />
-     <Compile Include="Assets\Scripts\OSCReceiver.cs" />
+     <Compile Include="Assets\Scripts\OSCController.cs" />
      <Compile Include="Assets\Scripts\PostProcessing.cs" />
      <Compile Include="Assets\Scripts\ScoreController.cs" />
      <Compile Include="Assets\Scripts\SingletonMonoBehaviour.cs" />

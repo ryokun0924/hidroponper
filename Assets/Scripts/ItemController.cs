@@ -6,10 +6,11 @@ using UniRx;
 using DG.Tweening;
 using GodTouches;
 using TMPro;
+using System;
 
 public class ItemController : MonoBehaviour
 {
-    private OSCReceiver receiver;
+    private OSCController oscController;
 
     [SerializeField] private GameObject item1;
     [SerializeField] private GameObject item2;
@@ -21,17 +22,27 @@ public class ItemController : MonoBehaviour
     [SerializeField] private float getTextShowSeconds;
     // Start is called before the first frame update
 
+    // private Subject<int> itemHitSubject = new Subject<int>();
+
+    // public IObservable<int> onItemHit
+    // {
+    //     get { return itemHitSubject; }
+    // }
+
+
     private bool isActive;
     private int activeKind;
     void Start()
     {
+
         isActive = false;
-        receiver = OSCReceiver.Instance;
+        oscController = OSCController.Instance;
         item1.SetActive(false);
         item2.SetActive(false);
         getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
-        receiver.OnItemShowSignal.Subscribe(signals =>
+        oscController.OnItemShowSignal.Subscribe(signals =>
         {
+
             item1.SetActive(false);
             item2.SetActive(false);
             getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
@@ -44,9 +55,13 @@ public class ItemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         var phase = GodTouch.GetPhase();
         if (phase == GodPhase.Began && isActive)
         {
+
+            // itemHitSubject.OnNext(activeKind);
+             oscController.sendHitItem(activeKind);
             // StartCoroutine(hitAnimation());
             hitAnimation();
             StartCoroutine(showGetText());
@@ -58,7 +73,7 @@ public class ItemController : MonoBehaviour
     {
         int kind = (int)signals.x;
         int duration = (int)signals.y;
-        GameObject target;
+
         if (kind == 1)
         {
             activeKind = 1;

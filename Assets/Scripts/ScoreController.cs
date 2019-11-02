@@ -15,14 +15,14 @@ public class ScoreController : MonoBehaviour
 
     [SerializeField] float resultShowDurationMilliSeconds;
 
-     private OSCReceiver receiver;
+     private OSCController oscController;
     int dispScore;
     
 
     float pastTime;
     void Start()
     {
-        receiver = OSCReceiver.Instance;
+        oscController = OSCController.Instance;
 
         scoreText.alpha = 0.0f;
         scoreText.DOFade(1.0f, 5.0f);
@@ -31,11 +31,11 @@ public class ScoreController : MonoBehaviour
         dispScore = 0;
         rankText.alpha = 0.0f;
 
-        receiver.OnScoreShowSignal.Subscribe(score =>
+        oscController.OnScoreShowSignal.Subscribe(score =>
         {
             showScore(score);
         });
-        receiver.OnRankShowSignal.Subscribe(rank =>
+        oscController.OnRankShowSignal.Subscribe(rank =>
         {
             showRank(rank);
         });

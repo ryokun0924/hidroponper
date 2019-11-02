@@ -28,6 +28,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityOSC;
 
+
+
 /// <summary>
 /// Models a log of a server composed by an OSCServer, a List of OSCPacket and a List of
 /// strings that represent the current messages in the log.
@@ -56,10 +58,12 @@ public struct ClientLog
 /// Handles all the OSC servers and clients of the current Unity game/application.
 /// Tracks incoming and outgoing messages.
 /// </summary>
-public class OSCHandler : MonoBehaviour
+public class OSCHandler : SingletonMonoBehaviour<OSCHandler>
 {
 
 	public int receive_port = 12345;
+	public int send_port = 8888;
+	public string send_ip = "127.0.0.1";
 	public event PacketReceivedEventHandler PacketReceiveEvent;
 
 	#region Singleton Constructors
@@ -101,9 +105,10 @@ public class OSCHandler : MonoBehaviour
 	/// </summary>
 	public void Init()
 	{
+		  DontDestroyOnLoad(gameObject);
         //Initialize OSC clients (transmitters)
         //Example:		
-        // CreateClient("DummySender", IPAddress.Parse("127.0.0.1"), 5555);
+        CreateClient("tabletSender", IPAddress.Parse(send_ip), send_port);
 
 
         //Initialize OSC servers (listeners)

@@ -491,7 +491,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121335709}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 47d35808a3b4643e6ba980f69a97dc8f, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 4a19ac4e8655448ed8b02dd727c0841a, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 963194227}
@@ -508,7 +508,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: 
+  m_Url: file:///Users/ryo/Documents/workplace/unity/hidroponper/Assets/Images/water.webm
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 using System;
-
-namespace GodTouches
-{
+using GodTouches;
+// namespace GodTouches
+// {
     namespace UniRx
     {
         public class Target : MonoBehaviour
         {
             bool isActive;
             bool isHit;
+
+            float pastTime;
             public float showDuration;
             public float hitAnimationDuration;
 
@@ -19,21 +21,32 @@ namespace GodTouches
             private Quaternion activeRotation;
             private Quaternion afterRotation;
 
-            private OSCReceiver receiver;
+            private OSCController oscController;
             // Start is called before the first frame update
+
+            // private Subject<int> targetHitSubject = new Subject<int>();
+
+
+            // public IObservable<int> onTargetHit{
+            //     get { return targetHitSubject;}
+            // }
+
+ 
+
             void Start()
             {
-                receiver = OSCReceiver.Instance;
+                pastTime = 0;
+                oscController = OSCController.Instance;
                 beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
                 activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 afterRotation = Quaternion.Euler(new Vector3(0, 0, -110));
                 showDuration = 300;
                 hitAnimationDuration = 300;
                 transform.rotation = beforeRotation;
-                receiver.OnShowSignal.Subscribe(duration =>
+                oscController.OnShowSignal.Subscribe(duration =>
                 {
                     // print("show start. duration=" + duration);
-
+                    pastTime = 0;
                     resetCoroutine();
                     activate(duration);
                 });
@@ -44,10 +57,14 @@ namespace GodTouches
             // Update is called once per frame
             void Update()
             {
+                pastTime += Time.deltaTime;
 
                 var phase = GodTouch.GetPhase();
                 if (phase == GodPhase.Began && isActive)
                 {
+                    int pastTimeInt = (int)pastTime*1000;
+                    // targetHitSubject.OnNext(pastTimeInt);
+                    oscController.sendHitTarget(pastTimeInt);
                     isHit = true;
                     StartCoroutine(hitAnimation());
                     StopCoroutine("deactivate");
@@ -131,4 +148,4 @@ namespace GodTouches
     }
 
 
-}
+// }

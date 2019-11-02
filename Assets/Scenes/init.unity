@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 1010728916}
   - component: {fileID: 1010728915}
   m_Layer: 0
-  m_Name: oscReceiver
+  m_Name: oscController
   m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
