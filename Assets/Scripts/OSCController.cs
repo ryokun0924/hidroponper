@@ -46,7 +46,7 @@ public class OSCController : SingletonMonoBehaviour<OSCController>
     }
 
     public void sendHitTarget(int _duration){
-         OSCHandler.Instance.SendMessageToClient("tabletSender","/hit",1000);
+         OSCHandler.Instance.SendMessageToClient("tabletSender","/hit",_duration);
     }
 
     public void sendHitItem(int _kind){
@@ -164,7 +164,7 @@ public class OSCController : SingletonMonoBehaviour<OSCController>
         if (Input.GetKeyDown("space"))
         {
             showSubject.OnNext(3000);
-            
+
             OSCHandler.Instance.SendMessageToClient("tabletSender","/hit",1111);
 
         }

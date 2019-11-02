@@ -62,7 +62,8 @@ using GodTouches;
                 var phase = GodTouch.GetPhase();
                 if (phase == GodPhase.Began && isActive)
                 {
-                    int pastTimeInt = (int)pastTime*1000;
+                    int pastTimeInt = (int)(pastTime*1000f);
+
                     // targetHitSubject.OnNext(pastTimeInt);
                     oscController.sendHitTarget(pastTimeInt);
                     isHit = true;

@@ -92,7 +92,7 @@ public class ItemController : MonoBehaviour
         isActive = true;
         target.SetActive(true);
         Image itemImage = target.GetComponent<Image>();
-        itemImage.transform.DOScale(new Vector3(1, 1, 1), 0.0f);
+        itemImage.transform.DOScale(new Vector3(1.7f, 1.7f, 1.7f), 0.0f);
 
         itemImage.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
         DOTween.ToAlpha(
@@ -144,7 +144,7 @@ public class ItemController : MonoBehaviour
       0f,
       (float)fadeTime / 1000f);
 
-        itemImage.transform.DOScale(new Vector3(3, 3, 3), (float)fadeTime / 1000f);
+        itemImage.transform.DOScale(new Vector3(3.5f, 3.5f, 3.5f), (float)fadeTime / 1000f);
 
     }
     IEnumerator showGetText()
@@ -152,11 +152,11 @@ public class ItemController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
 
         getText.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
-        getText.transform.DOScale(new Vector3(1, 1, 1), 0.8f);
+        getText.transform.DOScale(new Vector3(2, 2, 2), 0.8f);
 
 
         yield return new WaitForSeconds(getTextShowSeconds);
-        getText.transform.DOScale(new Vector3(0, 1, 1), 0.2f);
+        getText.transform.DOScale(new Vector3(0, 2, 2), 0.2f);
 
     }
 
