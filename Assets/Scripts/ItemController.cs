@@ -29,6 +29,8 @@ public class ItemController : MonoBehaviour
     //     get { return itemHitSubject; }
     // }
 
+    private IDisposable _disposable;
+
 
     private bool isActive;
     private int activeKind;
@@ -40,7 +42,7 @@ public class ItemController : MonoBehaviour
         item1.SetActive(false);
         item2.SetActive(false);
         getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
-        oscController.OnItemShowSignal.Subscribe(signals =>
+        _disposable = oscController.OnItemShowSignal.Subscribe(signals =>
         {
 
             item1.SetActive(false);
@@ -61,7 +63,7 @@ public class ItemController : MonoBehaviour
         {
 
             // itemHitSubject.OnNext(activeKind);
-             oscController.sendHitItem(activeKind);
+            oscController.sendHitItem(activeKind);
             // StartCoroutine(hitAnimation());
             hitAnimation();
             StartCoroutine(showGetText());
@@ -166,6 +168,10 @@ public class ItemController : MonoBehaviour
         StopCoroutine("hitAnimation");
         StopCoroutine("deactivate");
         StopCoroutine("hide");
+    }
+    void OnDestroy()
+    {
+        _disposable.Dispose();
     }
 
 }

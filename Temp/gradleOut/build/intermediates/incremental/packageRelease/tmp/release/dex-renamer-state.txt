@@ -1,0 +1,4 @@
+#Sun Nov 03 14:44:33 JST 2019
+base.0=/Users/ryo/Documents/workplace/unity/hidroponper/Temp/gradleOut/build/intermediates/transforms/dexMerger/release/0
+path.0=classes.dex
+renamed.0=classes.dex

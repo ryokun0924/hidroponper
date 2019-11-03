@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UniRx;
 using DG.Tweening;
+using System;
 
 
 public class ScoreController : MonoBehaviour
@@ -18,6 +19,8 @@ public class ScoreController : MonoBehaviour
      private OSCController oscController;
     int dispScore;
     
+     private IDisposable _disposableScore;
+      private IDisposable _disposableRank;
 
     float pastTime;
     void Start()
@@ -31,11 +34,11 @@ public class ScoreController : MonoBehaviour
         dispScore = 0;
         rankText.alpha = 0.0f;
 
-        oscController.OnScoreShowSignal.Subscribe(score =>
+        _disposableScore = oscController.OnScoreShowSignal.Subscribe(score =>
         {
             showScore(score);
         });
-        oscController.OnRankShowSignal.Subscribe(rank =>
+        _disposableRank = oscController.OnRankShowSignal.Subscribe(rank =>
         {
             showRank(rank);
         });
@@ -76,5 +79,11 @@ public class ScoreController : MonoBehaviour
     {   
         rankText.alpha = 0.0f;
         rankText.DOFade(1.0f, resultShowDurationMilliSeconds/1000.0f);
+    }
+
+    void OnDestroy()
+    {
+        _disposableScore.Dispose();
+        _disposableRank.Dispose();
     }
 }

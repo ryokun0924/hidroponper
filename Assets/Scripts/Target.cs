@@ -31,7 +31,7 @@ using GodTouches;
             //     get { return targetHitSubject;}
             // }
 
- 
+            private IDisposable _disposable;
 
             void Start()
             {
@@ -43,7 +43,7 @@ using GodTouches;
                 showDuration = 300;
                 hitAnimationDuration = 300;
                 transform.rotation = beforeRotation;
-                oscController.OnShowSignal.Subscribe(duration =>
+                _disposable = oscController.OnShowSignal.Subscribe(duration =>
                 {
                     // print("show start. duration=" + duration);
                     pastTime = 0;
@@ -142,6 +142,11 @@ using GodTouches;
                 StopCoroutine("Hide");
                 StopCoroutine("Show");
                 
+            }
+
+            void OnDestroy(){
+                // Debug.Log("taget destroy");
+                 _disposable.Dispose();   
             }
 
 

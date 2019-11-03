@@ -2,10 +2,10 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CountDownController
-    - GodTouches.UniRx.Target
     - ItemController
-    - OSCReceiver
+    - OSCController
     - ScoreController
+    - UniRx.Target
     - waveMovieTransition
     DOTween.dll:
     - DG.Tweening.Core.DOTweenSettings
@@ -511,7 +511,7 @@ ScriptsOnlyBuild:
       serializedVersion: 2
       Hash: 229fc4c7cef40b4f2a45bbe52ac7df39
     assemblyName: Assembly-CSharp.dll
-    namespaceName: GodTouches.UniRx
+    namespaceName: UniRx
     className: Target
   - hash:
       serializedVersion: 2
@@ -881,7 +881,7 @@ ScriptsOnlyBuild:
     className: ObservablePointerUpTrigger
   - hash:
       serializedVersion: 2
-      Hash: 1e783e0ba14d7025cfdc0203d87b3844
+      Hash: 202c2ca694db450c1c83bda6fc2c7495
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OSCHandler
@@ -944,7 +944,7 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: OSCReceiver
+    className: OSCController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1125,4 +1125,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/countdown.unity
   - Assets/Scenes/main.unity
   - Assets/Scenes/result.unity
-  playerPath: /Users/ryo/Downloads/test.apk
+  playerPath: /Users/ryo/Downloads/hydropomper.apk
