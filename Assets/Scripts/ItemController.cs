@@ -34,6 +34,7 @@ public class ItemController : MonoBehaviour
 
     private bool isActive;
     private int activeKind;
+    GameObject itemget;
     void Start()
     {
 
@@ -42,6 +43,11 @@ public class ItemController : MonoBehaviour
         item1.SetActive(false);
         item2.SetActive(false);
         getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
+
+
+        itemget = (GameObject)Resources.Load("effects/itemget");
+        // Cubeプレハブを元に、インスタンスを生成、
+        
         _disposable = oscController.OnItemShowSignal.Subscribe(signals =>
         {
 
@@ -97,7 +103,7 @@ public class ItemController : MonoBehaviour
 
     void startShow(GameObject target, float _duration)
     {
-
+        Instantiate(itemget, new Vector3(0.0f, 0.0f, 0.1f), Quaternion.identity);
         isActive = true;
         target.SetActive(true);
         Image itemImage = target.GetComponent<Image>();
