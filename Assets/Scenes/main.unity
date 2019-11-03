@@ -408,7 +408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &121335710
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2025,6 +2025,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6658673902880856207, guid: 607c2f38d1ab04964af4473fdce023fe,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8ac1fc765224494a9b924b72a1fa823,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 607c2f38d1ab04964af4473fdce023fe, type: 3}
 --- !u!224 &1415668821 stripped
@@ -2165,6 +2171,12 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 5863705785865954735, guid: f0b748f326b1b4ffb968601ea042d92c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f8ac1fc765224494a9b924b72a1fa823,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b748f326b1b4ffb968601ea042d92c, type: 3}
 --- !u!224 &1624198694 stripped

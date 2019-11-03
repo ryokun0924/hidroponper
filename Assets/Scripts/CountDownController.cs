@@ -13,6 +13,9 @@ public class CountDownController : MonoBehaviour
     [SerializeField]
     GameObject three;
 
+    [SerializeField]
+    GameObject go;
+
     // Start is called before the first frame update
     float pastTIme;
     int beforeTimeInt;
@@ -22,6 +25,7 @@ public class CountDownController : MonoBehaviour
         three.GetComponent<Renderer>().enabled = true;
         two.GetComponent<Renderer>().enabled = false;
         one.GetComponent<Renderer>().enabled = false;
+        go.GetComponent<Renderer>().enabled = false;
         pastTIme = 0;
         beforeTimeInt = 3;
     }
@@ -39,18 +43,21 @@ public class CountDownController : MonoBehaviour
                 three.GetComponent<Renderer>().enabled = true;
                 two.GetComponent<Renderer>().enabled = false;
                 one.GetComponent<Renderer>().enabled = false;
+                go.GetComponent<Renderer>().enabled = false;
             }
             else if (remainTimeInt == 2)
             {
                 three.GetComponent<Renderer>().enabled = false;
                 two.GetComponent<Renderer>().enabled = true;
                 one.GetComponent<Renderer>().enabled = false;
+                go.GetComponent<Renderer>().enabled = false;
             }
             else if (remainTimeInt == 1)
             {
                 three.GetComponent<Renderer>().enabled = false;
                 two.GetComponent<Renderer>().enabled = false;
                 one.GetComponent<Renderer>().enabled = true;
+                go.GetComponent<Renderer>().enabled = false;
 
             }
             else
@@ -58,6 +65,7 @@ public class CountDownController : MonoBehaviour
                 three.GetComponent<Renderer>().enabled = false;
                 two.GetComponent<Renderer>().enabled = false;
                 one.GetComponent<Renderer>().enabled = false;
+                go.GetComponent<Renderer>().enabled = true;
                 SceneManager.LoadScene("main");
             }
         }
