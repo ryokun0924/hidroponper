@@ -61,8 +61,8 @@ public struct ClientLog
 public class OSCHandler : SingletonMonoBehaviour<OSCHandler>
 {
 
-	public int receive_port = 12345;
-	public int send_port = 8888;
+	public int receive_port = 12346;
+	public int send_port = 12345;
 	public string send_ip = "127.0.0.1";
 	public event PacketReceivedEventHandler PacketReceiveEvent;
 
