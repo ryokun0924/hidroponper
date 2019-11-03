@@ -10,6 +10,7 @@ using GodTouches;
     {
         public class Target : MonoBehaviour
         {
+     
             bool isActive;
             bool isHit;
 
@@ -22,6 +23,7 @@ using GodTouches;
             private Quaternion afterRotation;
 
             private OSCController oscController;
+            private ModeController modeController;
             // Start is called before the first frame update
 
             // private Subject<int> targetHitSubject = new Subject<int>();
@@ -37,6 +39,7 @@ using GodTouches;
             {
                 pastTime = 0;
                 oscController = OSCController.Instance;
+                modeController = ModeController.Instance;
                 beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
                 activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 afterRotation = Quaternion.Euler(new Vector3(0, 0, -110));
@@ -50,7 +53,10 @@ using GodTouches;
                     resetCoroutine();
                     activate(duration);
                 });
-
+                
+                if(modeController.isAutoMode){
+                    StartCoroutine(autoMode());
+                }
 
             }
 
@@ -65,7 +71,9 @@ using GodTouches;
                     int pastTimeInt = (int)(pastTime*1000f);
 
                     // targetHitSubject.OnNext(pastTimeInt);
-                    oscController.sendHitTarget(pastTimeInt);
+                    if(!modeController.isAutoMode){
+                        oscController.sendHitTarget(pastTimeInt);
+                    }
                     isHit = true;
                     StartCoroutine(hitAnimation());
                     StopCoroutine("deactivate");
@@ -127,7 +135,7 @@ using GodTouches;
             private IEnumerator hitAnimation()
             {
                 Quaternion startRotation = transform.rotation;
-                Quaternion endRotation = startRotation * Quaternion.Euler(100, 0, 0);
+                Quaternion endRotation = startRotation * Quaternion.Euler(130, 0, 0);
                 for (float t = 0; t < hitAnimationDuration; t += Time.deltaTime * 1000.0f)
                 {
                     transform.rotation = Quaternion.Lerp(startRotation, endRotation, t / hitAnimationDuration);
@@ -149,6 +157,14 @@ using GodTouches;
                  _disposable.Dispose();   
             }
 
+            private IEnumerator autoMode(){
+                while(true){
+                    int duration = UnityEngine.Random.Range(2000,5000);
+                    activate(duration);
+                    int waitTime =  UnityEngine.Random.Range(2000,5000);
+                    yield return new WaitForSeconds((float)(duration+waitTime) / 1000.0f);
+                }
+            }
 
         }
     }

@@ -408,7 +408,7 @@ MonoBehaviour:
   m_text: "\u30DE\u30B9\u30BF\u30FC\u30DD\u30F3\u30D1\u30FC"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8b78b17c403854db78a4c776450b9284, type: 2}
-  m_sharedMaterial: {fileID: -6990215285310876981, guid: 8b78b17c403854db78a4c776450b9284,
+  m_sharedMaterial: {fileID: 1737792663476590341, guid: 8b78b17c403854db78a4c776450b9284,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -434,8 +434,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 140
-  m_fontSizeBase: 140
+  m_fontSize: 280
+  m_fontSizeBase: 280
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -705,7 +705,6 @@ MonoBehaviour:
   scoreText: {fileID: 1568540694}
   rankText: {fileID: 0}
   resultShowDurationMilliSeconds: 4000
-  receiver: {fileID: 0}
 --- !u!1 &1568540692
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,8 +790,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 500
-  m_fontSizeBase: 500
+  m_fontSize: 900
+  m_fontSizeBase: 900
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -967,7 +966,6 @@ MonoBehaviour:
   scoreText: {fileID: 1568540694}
   rankText: {fileID: 664772659}
   resultShowDurationMilliSeconds: 4000
-  receiver: {fileID: 0}
 --- !u!4 &1851811105
 Transform:
   m_ObjectHideFlags: 0
