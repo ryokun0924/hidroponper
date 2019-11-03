@@ -80,7 +80,11 @@ using GodTouches;
                     StopCoroutine("Show");
                 }
 
-            }
+
+          
+
+
+        }
             void activate(float _duration)
             {
                 transform.rotation = beforeRotation;
@@ -94,6 +98,7 @@ using GodTouches;
                 //hitしたら登場アニメーションは終わり
                 if (!isHit)
                 {
+                    Debug.Log("テスト");
                     Quaternion startRotation = transform.rotation;
                     Quaternion endRotation = activeRotation;
                     for (float t = 0; t < _showDuration; t += Time.deltaTime * 1000.0f)

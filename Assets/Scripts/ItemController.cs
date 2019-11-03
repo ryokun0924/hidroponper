@@ -69,6 +69,13 @@ public class ItemController : MonoBehaviour
             StartCoroutine(showGetText());
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("クリックアップデート");
+            startShow(item1, 2000);
+        }
+
+
     }
 
     void activate(Vector2 signals)
