@@ -25,7 +25,7 @@ public class waveMovieTransition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if( alpha <= 1.0 ){
+        if( alpha <= 0.8 ){
             pastTime += Time.deltaTime;
             alpha = pastTime*1000.0f / (float)waveVideoFadeMilliSeconds;
             GetComponent<VideoPlayer>().targetCameraAlpha = alpha;

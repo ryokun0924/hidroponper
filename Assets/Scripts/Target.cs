@@ -24,20 +24,29 @@ using GodTouches;
 
             private OSCController oscController;
             private ModeController modeController;
-            // Start is called before the first frame update
+            GameObject fiteffect1;
+            GameObject fiteffect2;
+            GameObject fiteffect3;
+            GameObject fiteffect4;
+        // Start is called before the first frame update
 
-            // private Subject<int> targetHitSubject = new Subject<int>();
+        // private Subject<int> targetHitSubject = new Subject<int>();
 
 
-            // public IObservable<int> onTargetHit{
-            //     get { return targetHitSubject;}
-            // }
+        // public IObservable<int> onTargetHit{
+        //     get { return targetHitSubject;}
+        // }
 
-            private IDisposable _disposable;
+        private IDisposable _disposable;
 
             void Start()
             {
-                pastTime = 0;
+
+            fiteffect1 = (GameObject)Resources.Load("effects/hit5");
+            fiteffect2 = (GameObject)Resources.Load("effects/hit");
+            fiteffect3 = (GameObject)Resources.Load("effects/hit1");
+            fiteffect4 = (GameObject)Resources.Load("effects/hit2");
+            pastTime = 0;
                 oscController = OSCController.Instance;
                 modeController = ModeController.Instance;
                 beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
@@ -75,13 +84,22 @@ using GodTouches;
                         oscController.sendHitTarget(pastTimeInt);
                     }
                     isHit = true;
+              
+
+               
                     StartCoroutine(hitAnimation());
                     StopCoroutine("deactivate");
                     StopCoroutine("Show");
                 }
 
+            if (Input.GetKey(KeyCode.Space))
+            {
+        
+                activate(2000.0f);
+            }
 
-          
+
+
 
 
         }
@@ -98,7 +116,6 @@ using GodTouches;
                 //hitしたら登場アニメーションは終わり
                 if (!isHit)
                 {
-                    Debug.Log("テスト");
                     Quaternion startRotation = transform.rotation;
                     Quaternion endRotation = activeRotation;
                     for (float t = 0; t < _showDuration; t += Time.deltaTime * 1000.0f)
@@ -137,10 +154,20 @@ using GodTouches;
                 StartCoroutine(Hide(showDuration));
             }
 
+
+
             private IEnumerator hitAnimation()
             {
-                Quaternion startRotation = transform.rotation;
-                Quaternion endRotation = startRotation * Quaternion.Euler(130, 0, 0);
+
+
+            Instantiate(fiteffect1, new Vector3(0.0f, 0.0f, -0.3f), Quaternion.identity);
+            //Instantiate(fiteffect2, new Vector3(0.0f, 0.0f, -0.3f), Quaternion.identity);
+            Instantiate(fiteffect3, new Vector3(0.0f, 0.0f, -0.3f), Quaternion.identity);
+            Instantiate(fiteffect4, new Vector3(0.0f, 0.0f, -0.3f), Quaternion.identity);
+
+            yield return new WaitForSeconds(0.3f);
+           Quaternion startRotation = transform.rotation;
+            Quaternion endRotation = startRotation * Quaternion.Euler(130, 0, 0);
                 for (float t = 0; t < hitAnimationDuration; t += Time.deltaTime * 1000.0f)
                 {
                     transform.rotation = Quaternion.Lerp(startRotation, endRotation, t / hitAnimationDuration);
@@ -148,6 +175,9 @@ using GodTouches;
                 }
                 transform.rotation = endRotation;
             }
+
+
+
             void resetCoroutine()
             {
                 StopCoroutine("hitAnimation");

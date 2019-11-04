@@ -20,6 +20,8 @@ public class ItemController : MonoBehaviour
     [SerializeField] private int fadeTime;
 
     [SerializeField] private float getTextShowSeconds;
+    public AudioClip itemgetSE;
+    AudioSource audioSource;
     // Start is called before the first frame update
 
     // private Subject<int> itemHitSubject = new Subject<int>();
@@ -43,11 +45,15 @@ public class ItemController : MonoBehaviour
         item1.SetActive(false);
         item2.SetActive(false);
         getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
+        audioSource = gameObject.GetComponent<AudioSource>();
+        audioSource.clip = itemgetSE;
+        
 
 
         itemget = (GameObject)Resources.Load("effects/itemget");
         // Cubeプレハブを元に、インスタンスを生成、
         
+
         _disposable = oscController.OnItemShowSignal.Subscribe(signals =>
         {
 
@@ -75,8 +81,7 @@ public class ItemController : MonoBehaviour
             StartCoroutine(showGetText());
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetKey("a")) {
             Debug.Log("クリックアップデート");
             startShow(item1, 2000);
         }
@@ -165,6 +170,7 @@ public class ItemController : MonoBehaviour
     IEnumerator showGetText()
     {
         yield return new WaitForSeconds(0.3f);
+        audioSource.Play();
 
         getText.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
         getText.transform.DOScale(new Vector3(2, 2, 2), 0.8f);
