@@ -10,29 +10,37 @@ using System;
 public class ScoreController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject scoreObject;
 
-    [SerializeField] private TextMeshProUGUI rankText;
+    [SerializeField] private GameObject rankObject;
+
+    [SerializeField] private GameObject shirouto;
+    [SerializeField] private GameObject ace;
+    [SerializeField] private GameObject master;
+    [SerializeField] private GameObject legend;
 
     [SerializeField] float resultShowDurationMilliSeconds;
 
-     private OSCController oscController;
+    private OSCController oscController;
     int dispScore;
-    
-     private IDisposable _disposableScore;
-      private IDisposable _disposableRank;
+
+    private IDisposable _disposableScore;
+    private IDisposable _disposableRank;
+
+    private TextMeshPro scoreText;
 
     float pastTime;
     void Start()
     {
         oscController = OSCController.Instance;
+        scoreText = scoreObject.GetComponent<TextMeshPro>();
 
         scoreText.alpha = 0.0f;
         scoreText.DOFade(1.0f, 5.0f);
 
         pastTime = 0.0f;
         dispScore = 0;
-        rankText.alpha = 0.0f;
+
 
         _disposableScore = oscController.OnScoreShowSignal.Subscribe(score =>
         {
@@ -42,6 +50,18 @@ public class ScoreController : MonoBehaviour
         {
             showRank(rank);
         });
+
+
+        foreach (Transform child in rankObject.transform)
+        {
+            child.gameObject.SetActive(false);
+            master.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
+            shirouto.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
+            legend.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
+            ace.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
+        }
+
+
     }
 
     // Update is called once per frame
@@ -49,7 +69,7 @@ public class ScoreController : MonoBehaviour
     {
     }
     void showScore(int _score)
-    {   
+    {
         scoreText.text = "000";
         StartCoroutine(scoreFade(_score));
 
@@ -57,8 +77,9 @@ public class ScoreController : MonoBehaviour
     IEnumerator scoreFade(int _score)
     {
 
-        for(float t = 0; t <= (float)resultShowDurationMilliSeconds / 1000.0f; t += Time.deltaTime){
-            dispScore = (int)Mathf.Lerp(0.0f, _score+1, t * 1000f / resultShowDurationMilliSeconds);
+        for (float t = 0; t <= (float)resultShowDurationMilliSeconds / 1000.0f; t += Time.deltaTime)
+        {
+            dispScore = (int)Mathf.Lerp(0.0f, _score + 1, t * 1000f / resultShowDurationMilliSeconds);
             if (dispScore < 10)
             {
                 scoreText.text = "00" + dispScore.ToString();
@@ -76,9 +97,29 @@ public class ScoreController : MonoBehaviour
     }
 
     void showRank(int _rank)
-    {   
-        rankText.alpha = 0.0f;
-        rankText.DOFade(1.0f, resultShowDurationMilliSeconds/1000.0f);
+    {
+        
+        if (_rank == 0)
+        {
+            shirouto.SetActive(true);
+            shirouto.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+        }
+        else if (_rank == 1)
+        {
+            ace.SetActive(true);
+            ace.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+        }
+        else if (_rank == 2)
+        {
+            master.SetActive(true);
+            master.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+        }
+        else if (_rank == 3)
+        {
+            legend.SetActive(true);
+            legend.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+        }
+     
     }
 
     void OnDestroy()
