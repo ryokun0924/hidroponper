@@ -13,9 +13,11 @@ public class ItemController : MonoBehaviour
     private OSCController oscController;
 
     [SerializeField] private GameObject item1;
-    [SerializeField] private GameObject item2;
 
-    [SerializeField] private GameObject getText;
+
+
+
+    [SerializeField] private GameObject powerUp;
 
     [SerializeField] private int fadeTime;
 
@@ -43,8 +45,9 @@ public class ItemController : MonoBehaviour
         isActive = false;
         oscController = OSCController.Instance;
         item1.SetActive(false);
-        item2.SetActive(false);
-        getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
+
+
+        powerUp.transform.DOScale(new Vector3(0, 1, 1), 0f);
         audioSource = gameObject.GetComponent<AudioSource>();
         audioSource.clip = itemgetSE;
         
@@ -52,14 +55,14 @@ public class ItemController : MonoBehaviour
 
         itemget = (GameObject)Resources.Load("effects/itemget");
         // Cubeプレハブを元に、インスタンスを生成、
-        
+
 
         _disposable = oscController.OnItemShowSignal.Subscribe(signals =>
         {
 
             item1.SetActive(false);
-            item2.SetActive(false);
-            getText.transform.DOScale(new Vector3(0, 1, 1), 0f);
+
+         
             resetCoroutine();
             activate(signals);
         });
@@ -81,7 +84,8 @@ public class ItemController : MonoBehaviour
             StartCoroutine(showGetText());
         }
 
-        if (Input.GetKey("a")) {
+        if (Input.GetKey("a"))
+        {
             Debug.Log("クリックアップデート");
             startShow(item1, 2000);
         }
@@ -93,17 +97,14 @@ public class ItemController : MonoBehaviour
     {
         int kind = (int)signals.x;
         int duration = (int)signals.y;
+        powerUp.transform.DOScale(new Vector3(0, 1, 1), 0f);
 
         if (kind == 1)
         {
             activeKind = 1;
             startShow(item1, duration);
         }
-        else if (kind == 2)
-        {
-            activeKind = 2;
-            startShow(item2, duration);
-        }
+
     }
 
     void startShow(GameObject target, float _duration)
@@ -153,10 +154,7 @@ public class ItemController : MonoBehaviour
         {
             itemImage = item1.GetComponent<Image>();
         }
-        else if (activeKind == 2)
-        {
-            itemImage = item2.GetComponent<Image>();
-        }
+
 
         DOTween.ToAlpha(
       () => itemImage.color,
@@ -172,12 +170,12 @@ public class ItemController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         audioSource.Play();
 
-        getText.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
-        getText.transform.DOScale(new Vector3(2, 2, 2), 0.8f);
+        powerUp.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
+        powerUp.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.8f);
 
 
         yield return new WaitForSeconds(getTextShowSeconds);
-        getText.transform.DOScale(new Vector3(0, 2, 2), 0.2f);
+        powerUp.transform.DOScale(new Vector3(0f, 1.2f, 1.2f), 0.2f);
 
     }
 
