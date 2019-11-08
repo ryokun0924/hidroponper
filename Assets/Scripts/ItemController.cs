@@ -171,11 +171,11 @@ public class ItemController : MonoBehaviour
         audioSource.Play();
 
         powerUp.transform.localScale = new Vector3(0.0f, 1.0f, 1.0f);
-        powerUp.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.8f);
+        powerUp.transform.DOScale(new Vector3(1f, 1f, 1f), 0.8f);
 
 
         yield return new WaitForSeconds(getTextShowSeconds);
-        powerUp.transform.DOScale(new Vector3(0f, 1.2f, 1.2f), 0.2f);
+        powerUp.transform.DOScale(new Vector3(0f, 1f, 1f), 0.2f);
 
     }
 

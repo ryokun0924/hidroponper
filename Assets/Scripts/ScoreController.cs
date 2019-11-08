@@ -55,10 +55,10 @@ public class ScoreController : MonoBehaviour
         foreach (Transform child in rankObject.transform)
         {
             child.gameObject.SetActive(false);
-            master.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
-            shirouto.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
-            legend.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
-            ace.transform.DOScale(new Vector3(0f, 1.1f, 1.1f), 0f);
+            master.transform.DOScale(new Vector3(0f, 0.5f, 0.5f), 0f);
+            shirouto.transform.DOScale(new Vector3(0f, 0.5f, 0.5f), 0f);
+            legend.transform.DOScale(new Vector3(0f, 0.5f, 0.5f), 0f);
+            ace.transform.DOScale(new Vector3(0f, 0.5f, 0.5f), 0f);
         }
 
 
@@ -102,22 +102,22 @@ public class ScoreController : MonoBehaviour
         if (_rank == 0)
         {
             shirouto.SetActive(true);
-            shirouto.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+            shirouto.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 2f);
         }
         else if (_rank == 1)
         {
             ace.SetActive(true);
-            ace.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+            ace.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 2f);
         }
         else if (_rank == 2)
         {
             master.SetActive(true);
-            master.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+            master.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 2f);
         }
         else if (_rank == 3)
         {
             legend.SetActive(true);
-            legend.transform.DOScale(new Vector3(1.1f, 1.1f, 1.1f), 2f);
+            legend.transform.DOScale(new Vector3(0.5f, 0.5f, 0.5f), 2f);
         }
      
     }
