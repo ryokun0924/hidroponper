@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/init.unity
+    path: Assets/Scenes/setting.unity
+    guid: 5900fa67a698d4fd9b412f9c47f5c23f
+  - enabled: 1
+    path: Assets/Scenes/title.unity
     guid: ea6111929394d42d7a37c992e49d3515
   - enabled: 1
     path: Assets/Scenes/countdown.unity

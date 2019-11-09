@@ -23,7 +23,7 @@ using GodTouches;
             private Quaternion afterRotation;
 
             private OSCController oscController;
-            private ModeController modeController;
+
             GameObject fiteffect1;
             GameObject fiteffect2;
             GameObject fiteffect3;
@@ -48,7 +48,7 @@ using GodTouches;
             fiteffect4 = (GameObject)Resources.Load("effects/hit2");
             pastTime = 0;
                 oscController = OSCController.Instance;
-                modeController = ModeController.Instance;
+
                 beforeRotation = Quaternion.Euler(new Vector3(0, 0, 110));
                 activeRotation = Quaternion.Euler(new Vector3(0, 0, 0));
                 afterRotation = Quaternion.Euler(new Vector3(0, 0, -110));
@@ -63,7 +63,7 @@ using GodTouches;
                     activate(duration);
                 });
                 
-                if(modeController.isAutoMode){
+                if(SettingController.isAutoMode){
                     StartCoroutine(autoMode());
                 }
 
@@ -80,7 +80,7 @@ using GodTouches;
                     int pastTimeInt = (int)(pastTime*1000f);
 
                     // targetHitSubject.OnNext(pastTimeInt);
-                    if(!modeController.isAutoMode){
+                    if(!SettingController.isAutoMode){
                         oscController.sendHitTarget(pastTimeInt);
                     }
                     isHit = true;

@@ -60,11 +60,10 @@ public struct ClientLog
 /// </summary>
 public class OSCHandler : SingletonMonoBehaviour<OSCHandler>
 {
-
 	public int receive_port = 12346;
 	public int send_port = 12345;
-	// public string send_ip = "192.168.11.50";
-	public string send_ip = "127.0.0.1";
+	public string send_ip = SettingController.ipOfMainPC;
+	// public string send_ip = "127.0.0.1";
 	public event PacketReceivedEventHandler PacketReceiveEvent;
 
 	#region Singleton Constructors

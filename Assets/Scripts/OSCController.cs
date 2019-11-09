@@ -145,7 +145,7 @@ public class OSCController : SingletonMonoBehaviour<OSCController>
 
                         //初期化
                         case "/init":
-                            SceneManager.LoadScene("init");
+                            SceneManager.LoadScene("title");
                             break;
 
                     }
@@ -215,7 +215,7 @@ public class OSCController : SingletonMonoBehaviour<OSCController>
 
                     //初期化
                     case "/init":
-                        SceneManager.LoadScene("init");
+                        SceneManager.LoadScene("title");
                         break;
 
                 }
