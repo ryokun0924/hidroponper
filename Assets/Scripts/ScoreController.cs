@@ -79,7 +79,7 @@ public class ScoreController : MonoBehaviour
 
         for (float t = 0; t <= (float)resultShowDurationMilliSeconds / 1000.0f; t += Time.deltaTime)
         {
-            dispScore = (int)Mathf.Lerp(0.0f, _score + 1, t * 1000f / resultShowDurationMilliSeconds);
+            dispScore = (int)Mathf.Lerp(0.0f, _score, t * 1000f / resultShowDurationMilliSeconds);
             if (dispScore < 10)
             {
                 scoreText.text = "00" + dispScore.ToString();
@@ -94,6 +94,8 @@ public class ScoreController : MonoBehaviour
             }
             yield return null;
         }
+        scoreText.text = _score.ToString();
+
     }
 
     void showRank(int _rank)
